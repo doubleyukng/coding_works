@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Shadow</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap');
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #fafafa
+        }
+        .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        }
+        .text_box {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 90px;
+            color: #333;
+            text-transform: uppercase;
+        }
+        .text1 {
+            position: relative;  
+        }
+        .text1:before {
+            content: 'text shadow';
+            position: absolute;
+            display: block;
+            left: 10px;
+            bottom: -15px;
+            width: 100%;
+            opacity: 0.5;
+            transform: translate(20px, -8px) rotateX(40deg) skewX(-40deg);
+            filter: blur(5px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="text_box">
+            <div class="text1">text shadow</div>
+        </div>
+    </div>
+    
+</body>
+</html>
