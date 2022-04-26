@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex 레이아웃 이미지 어코디언</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Roboto Mono', monospace;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .photo {
+            position: relative;
+            flex: 1;
+            border: 5px solid #000;
+            filter: grayscale(1);
+            transition: 0.3s;
+            overflow: hidden;
+        }
+        .photo:not(.photo:nth-child(5)) {
+            border-right: none;
+        }
+        .photo:nth-child(1) {
+            background: url(images/cinema01.jpg) no-repeat center center/ cover;
+        }
+        .photo:nth-child(2) {
+            background: url(images/cinema02.jpg) no-repeat center center/ cover;
+        }
+        .photo:nth-child(3) {
+            background: url(images/cinema03.jpg) no-repeat center center/ cover;
+        }
+        .photo:nth-child(4) {
+            background: url(images/cinema04.jpg) no-repeat center center/ cover;
+        }
+        .photo:nth-child(5) {
+            background: url(images/cinema05.jpg) no-repeat center center/ cover;
+        }
+        .photo:hover {
+            flex: 2;
+            filter: none;
+        }
+
+        /* content hover */
+        .content {
+            position: absolute;
+            bottom: -100%;
+            height: 300px;
+            padding: 20px;
+            padding-top: 45px;
+            background-color :#000;
+            box-sizing: border-box;
+            color: #fff;
+            text-align: center;
+            transition: 0.5s;
+        }
+        .photo:nth-child(3) .content,
+        .photo:nth-child(4) .content,
+        .photo:nth-child(5) .content {
+            padding-top: 70px;
+        }
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            transform-origin: left bottom;
+            transform: rotate(-5deg) scale(1.3);
+            background-color: #000;
+        }
+        .photo:hover .content {
+            bottom: 0;
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <ul class="container">
+        <li class="photo">
+            <div class="content">
+                <h2>About us</h2>
+                <p>
+                    Vue Entertainment is part of Vue International - one of the world's leading cinema operators, managing the most respected brands in major European markets and Taiwan, spanning ten countries, over 280 sites and over 2,400 screens.
+                </p>
+            </div>
+        </li>
+        <li class="photo">
+            <div class="content">
+                <h2>ABOUT VUE ENTERTAINMENT (UK)</h2>
+                <p>
+                    Vue Entertainment (Vue) is a leader in the premium entertainment cinema sector in the UK.
+                </p>
+            </div>
+        </li>
+        <li class="photo">
+            <div class="content">
+                <p>
+                    Committed to continued growth and development of its premium entertainment ‘big screen’ experience, Vue delivers the best choice of content, combined with the best technology in the best environment.
+                </p>
+            </div>
+        </li>
+        <li class="photo">
+            <div class="content">
+                <p>
+                    Vue was founded in the UK following the acquisition of the Warner Village Cinemas in 2003 and is part of the largest cinema group in Europe, Vue International.
+                </p>
+            </div>
+        </li>
+        <li class="photo">
+            <div class="content">
+                <p>
+                    Over the years Vue has won numerous accolades for its service and innovations, including more recently International Exhibitor of the Year at CineEurope 2014 and Cinema Exhibitor of the Year Screen, Marketing & Distribution Awards 2013.
+                </p>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
